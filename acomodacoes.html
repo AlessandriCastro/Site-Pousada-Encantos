@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Acomodações - Pousada Encantos</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="assets/LogoEncantosDaMontanha1.png" alt="Pousada Encantos">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="acomodacoes.html">Acomodações</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <button class="menu-hamburguer" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="menu-mobile">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="acomodacoes.html">Acomodações</a></li>
+            <li><a href="servicos.html">Serviços</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </div>
+
+    <section class="page-header">
+        <h1>Nossas Acomodações</h1>
+        <p>Conheça nossas opções de hospedagem</p>
+    </section>
+
+    <section class="acomodacoes-detalhadas">
+        <div class="container-acomodacoes">
+            <div class="card-acomodacao">
+                <img src="assets/QuartoStand.jpg" alt="Quarto Standard">
+                <h3>Quarto Standard</h3>
+                <p>Conforto e praticidade para sua estadia</p>
+                <div class="preco">
+                    <span class="valor">R$ 350,00</span>
+                    <span class="periodo">/diária</span>
+                </div>
+                <ul class="beneficios">
+                    <li>Cama Queen</li>
+                    <li>Ar condicionado</li>
+                    <li>Wi-Fi gratuito</li>
+                    <li>Café da manhã incluído</li>
+                    <li>TV 32"</li>
+                    <li>Frigobar</li>
+                    <li>Banheiro privativo</li>
+                </ul>
+                <a href="reserva.html?tipoQuarto=standard" class="btn-selecionar">Reservar</a>
+            </div>
+
+            <div class="card-acomodacao destaque">
+                <img src="assets/Quartoluxo.jpeg" alt="Suíte Luxo">
+                <h3>Suíte Luxo</h3>
+                <p>Experiência com vista panorâmica</p>
+                <div class="preco">
+                    <span class="valor">R$ 550,00</span>
+                    <span class="periodo">/diária</span>
+                </div>
+                <ul class="beneficios">
+                    <li>Cama King</li>
+                    <li>Varanda privativa</li>
+                    <li>Hidromassagem</li>
+                    <li>Serviço de quarto 24h</li>
+                    <li>TV 50" Smart TV</li>
+                    <li>Minibar completo</li>
+                    <li>Banheiro com ducha</li>
+                </ul>
+                <a href="reserva.html?tipoQuarto=luxo" class="btn-selecionar">Reservar</a>
+            </div>
+
+            <div class="card-acomodacao">
+                <img src="assets/QuartoFamilia.jpg" alt="Chalé Família">
+                <h3>Chalé Família</h3>
+                <p>Ideal para grupos e famílias</p>
+                <div class="preco">
+                    <span class="valor">R$ 750,00</span>
+                    <span class="periodo">/diária</span>
+                </div>
+                <ul class="beneficios">
+                    <li>2 quartos</li>
+                    <li>Sala de estar</li>
+                    <li>Cozinha completa</li>
+                    <li>Área de lazer exclusiva</li>
+                    <li>TV 55" Smart TV</li>
+                    <li>Churrasqueira</li>
+                    <li>2 banheiros</li>
+                </ul>
+                <a href="reserva.html?tipoQuarto=familia" class="btn-selecionar">Reservar</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contato-info">
+                <h3>Contato</h3>
+                <p>Endereço: Rua das Flores, 123</p>
+                <p>Telefone: (11) 1234-5678</p>
+                <p>Email: contato@pousadaencantos.com.br</p>
+            </div>
+            <div class="redes-sociais">
+                <h3>Redes Sociais</h3>
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Instagram</a>
+                <a href="#" class="social-icon">WhatsApp</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Pousada Encantos. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuHamburguer = document.querySelector('.menu-hamburguer');
+        const menuMobile = document.querySelector('.menu-mobile');
+        const links = document.querySelectorAll('.menu-mobile a');
+
+        menuHamburguer.addEventListener('click', function() {
+            menuHamburguer.classList.toggle('active');
+            menuMobile.classList.toggle('active');
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', function() {
+                menuHamburguer.classList.remove('active');
+                menuMobile.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!menuHamburguer.contains(event.target) && !menuMobile.contains(event.target)) {
+                menuHamburguer.classList.remove('active');
+                menuMobile.classList.remove('active');
+            }
+        });
+    });
+    </script>
+</body>
+</html> 

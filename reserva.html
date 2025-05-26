@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Reserva - Pousada Encantos</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="assets/LogoEncantosDaMontanha1.png" alt="Logo Pousada Encantos da Montanha">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="acomodacoes.html">Acomodações</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>Fazer Reserva</h1>
+        <p>Escolha suas datas e acomodação</p>
+    </section>
+
+    <section class="reserva-conteudo">
+        <div class="container-reserva">
+            <div class="passos-reserva">
+                <div class="passo ativo" id="passo1">
+                    <h3>1. Selecione as Datas</h3>
+                    <div class="formulario-datas">
+                        <div class="form-group">
+                            <label for="checkin">Data de Check-in</label>
+                            <input type="date" id="checkin" name="checkin" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout">Data de Check-out</label>
+                            <input type="date" id="checkout" name="checkout" required>
+                        </div>
+                        <button class="btn-avancar" onclick="avancarPasso(1)">Avançar</button>
+                    </div>
+                </div>
+
+                <div class="passo" id="passo2">
+                    <h3>2. Escolha sua Acomodação</h3>
+                    <div class="container-escolha-quarto">
+                        <div class="cards-quartos">
+                            <div class="card-quarto" data-tipo="standard">
+                                <img src="assets/QuartoStand.jpg" alt="Quarto Standard">
+                                <h4>Quarto Standard</h4>
+                                <p>R$ 350,00 /diária</p>
+                                <div class="info-quarto">
+                                    <p>Cama Queen • Ar condicionado • Wi-Fi</p>
+                                </div>
+                                <button class="btn-selecionar-quarto">Selecionar</button>
+                                <div class="quantidade-hospedes" style="display: none;">
+                                    <label>Quantidade de Hóspedes:</label>
+                                    <div class="contador-hospedes">
+                                        <button class="btn-contador" onclick="diminuirHospedes('standard')">-</button>
+                                        <span class="numero-hospedes" id="hospedes-standard">1</span>
+                                        <button class="btn-contador" onclick="aumentarHospedes('standard')">+</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-quarto" data-tipo="luxo">
+                                <img src="assets/Quartoluxo.jpeg" alt="Suíte Luxo">
+                                <h4>Suíte Luxo</h4>
+                                <p>R$ 550,00 /diária</p>
+                                <div class="info-quarto">
+                                    <p>Cama King • Hidromassagem • Varanda</p>
+                                </div>
+                                <button class="btn-selecionar-quarto">Selecionar</button>
+                                <div class="quantidade-hospedes" style="display: none;">
+                                    <label>Quantidade de Hóspedes:</label>
+                                    <div class="contador-hospedes">
+                                        <button class="btn-contador" onclick="diminuirHospedes('luxo')">-</button>
+                                        <span class="numero-hospedes" id="hospedes-luxo">1</span>
+                                        <button class="btn-contador" onclick="aumentarHospedes('luxo')">+</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-quarto" data-tipo="familia">
+                                <img src="assets/QuartoFamilia.jpg" alt="Chalé Família">
+                                <h4>Chalé Família</h4>
+                                <p>R$ 750,00 /diária</p>
+                                <div class="info-quarto">
+                                    <p>2 quartos • Cozinha • Área de lazer</p>
+                                </div>
+                                <button class="btn-selecionar-quarto">Selecionar</button>
+                                <div class="quantidade-hospedes" style="display: none;">
+                                    <label>Quantidade de Hóspedes:</label>
+                                    <div class="contador-hospedes">
+                                        <button class="btn-contador" onclick="diminuirHospedes('familia')">-</button>
+                                        <span class="numero-hospedes" id="hospedes-familia">1</span>
+                                        <button class="btn-contador" onclick="aumentarHospedes('familia')">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="resumo-reserva">
+                            <h4>Resumo da Reserva</h4>
+                            <div class="info-reserva">
+                                <div class="info-item">
+                                    <span class="label">Check-in:</span>
+                                    <span class="valor" id="resumo-checkin-2">-</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Check-out:</span>
+                                    <span class="valor" id="resumo-checkout-2">-</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Acomodação:</span>
+                                    <span class="valor" id="resumo-quarto-2">-</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Hóspedes:</span>
+                                    <span class="valor" id="resumo-hospedes-2">-</span>
+                                </div>
+                                <div class="info-item total">
+                                    <span class="label">Total:</span>
+                                    <span class="valor" id="resumo-total-2">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-avancar" onclick="avancarPasso(2)">Avançar</button>
+                </div>
+
+                <div class="passo" id="passo3">
+                    <h3>3. Dados Pessoais</h3>
+                    <div class="container-dados-resumo">
+                        <form id="formularioReserva" class="formulario-reserva">
+                            <div class="form-group">
+                                <label for="nome">Nome Completo</label>
+                                <input type="text" id="nome" name="nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" id="telefone" name="telefone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="observacoes">Observações Especiais</label>
+                                <textarea id="observacoes" name="observacoes" rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="btn-enviar">Confirmar Reserva</button>
+                        </form>
+
+                        <div class="resumo-reserva">
+                            <h4>Resumo da Reserva</h4>
+                            <div class="info-reserva">
+                                <div class="info-item">
+                                    <span class="label">Check-in:</span>
+                                    <span class="valor" id="resumo-checkin-3">-</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Check-out:</span>
+                                    <span class="valor" id="resumo-checkout-3">-</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Acomodação:</span>
+                                    <span class="valor" id="resumo-quarto-3">-</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Hóspedes:</span>
+                                    <span class="valor" id="resumo-hospedes-3">-</span>
+                                </div>
+                                <div class="info-item total">
+                                    <span class="label">Total:</span>
+                                    <span class="valor" id="resumo-total-3">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contato-info">
+                <h3>Contato</h3>
+                <p>Endereço: Rua das Flores, 123</p>
+                <p>Telefone: (11) 1234-5678</p>
+                <p>Email: contato@pousadaencantos.com.br</p>
+            </div>
+            <div class="redes-sociais">
+                <h3>Redes Sociais</h3>
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Instagram</a>
+                <a href="#" class="social-icon">WhatsApp</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Pousada Encantos. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Função para configurar a data mínima dos campos
+        function configurarDatasMinimas() {
+            const hoje = new Date();
+            const dataMinima = hoje.toISOString().split('T')[0]; // Formato YYYY-MM-DD
+            
+            document.getElementById('checkin').min = dataMinima;
+            document.getElementById('checkout').min = dataMinima;
+        }
+
+        // Configurar datas mínimas quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            configurarDatasMinimas();
+            
+            // Atualizar data mínima do checkout quando checkin mudar
+            document.getElementById('checkin').addEventListener('change', function() {
+                document.getElementById('checkout').min = this.value;
+            });
+        });
+
+        // Função para ordenar datas automaticamente
+        function ordenarDatas() {
+            const checkin = document.getElementById('checkin');
+            const checkout = document.getElementById('checkout');
+            
+            // Se ambas as datas estiverem preenchidas
+            if (checkin.value && checkout.value) {
+                const dataCheckin = new Date(checkin.value);
+                const dataCheckout = new Date(checkout.value);
+                
+                // Se a data de check-in for maior que a de check-out, troca os valores
+                if (dataCheckin > dataCheckout) {
+                    const temp = checkin.value;
+                    checkin.value = checkout.value;
+                    checkout.value = temp;
+                }
+            }
+        }
+
+        // Adicionar eventos de mudança nas datas
+        document.getElementById('checkin').addEventListener('change', ordenarDatas);
+        document.getElementById('checkout').addEventListener('change', ordenarDatas);
+
+        // Função para avançar entre os passos
+        function avancarPasso(passoAtual) {
+            // Validar datas antes de avançar do passo 1
+            if (passoAtual === 1) {
+                const checkin = document.getElementById('checkin').value;
+                const checkout = document.getElementById('checkout').value;
+                
+                if (!checkin || !checkout) {
+                    alert('Por favor, selecione as datas de check-in e check-out.');
+                    return;
+                }
+                
+                const dataCheckin = new Date(checkin);
+                const dataCheckout = new Date(checkout);
+                const hoje = new Date();
+                hoje.setHours(0, 0, 0, 0);
+                
+                if (dataCheckin < hoje) {
+                    alert('A data de check-in não pode ser anterior a hoje.');
+                    return;
+                }
+                
+                if (dataCheckin >= dataCheckout) {
+                    alert('A data de check-out deve ser posterior à data de check-in.');
+                    return;
+                }
+            }
+            
+            document.querySelectorAll('.passo').forEach(passo => {
+                passo.classList.remove('ativo');
+            });
+            document.getElementById('passo' + (passoAtual + 1)).classList.add('ativo');
+        }
+
+        // Função para atualizar o resumo da reserva
+        function atualizarResumo() {
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const cardSelecionado = document.querySelector('.card-quarto.selecionado');
+            
+            // Atualizar datas
+            const dataCheckin = checkin ? new Date(checkin).toLocaleDateString() : '-';
+            const dataCheckout = checkout ? new Date(checkout).toLocaleDateString() : '-';
+            
+            // Atualizar informações do quarto
+            let tipoQuarto = '-';
+            let hospedes = '-';
+            let total = '-';
+            
+            if (cardSelecionado) {
+                tipoQuarto = cardSelecionado.querySelector('h4').textContent;
+                const preco = cardSelecionado.querySelector('p').textContent;
+                hospedes = cardSelecionado.querySelector('.numero-hospedes').textContent + ' pessoa(s)';
+                
+                // Calcular total
+                const precoDiaria = parseFloat(preco.replace('R$ ', '').replace(',', '.'));
+                const dias = Math.ceil((new Date(checkout) - new Date(checkin)) / (1000 * 60 * 60 * 24));
+                total = `R$ ${(precoDiaria * dias).toFixed(2)}`;
+            }
+            
+            // Atualizar ambos os resumos
+            [2, 3].forEach(passo => {
+                document.getElementById(`resumo-checkin-${passo}`).textContent = dataCheckin;
+                document.getElementById(`resumo-checkout-${passo}`).textContent = dataCheckout;
+                document.getElementById(`resumo-quarto-${passo}`).textContent = tipoQuarto;
+                document.getElementById(`resumo-hospedes-${passo}`).textContent = hospedes;
+                document.getElementById(`resumo-total-${passo}`).textContent = total;
+                
+                if (total !== '-') {
+                    document.getElementById(`resumo-total-${passo}`).classList.add('destaque');
+                } else {
+                    document.getElementById(`resumo-total-${passo}`).classList.remove('destaque');
+                }
+            });
+        }
+
+        // Atualizar resumo quando as datas mudarem
+        document.getElementById('checkin').addEventListener('change', atualizarResumo);
+        document.getElementById('checkout').addEventListener('change', atualizarResumo);
+
+        // Atualizar resumo quando o quarto for selecionado/desselecionado
+        document.querySelectorAll('.btn-selecionar-quarto').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const card = this.closest('.card-quarto');
+                const tipoQuarto = card.dataset.tipo;
+                
+                // Se o card já estiver selecionado, desmarca ele
+                if (card.classList.contains('selecionado')) {
+                    card.classList.remove('selecionado');
+                    this.classList.remove('selecionado');
+                    this.textContent = 'Selecionar';
+                    card.querySelector('.quantidade-hospedes').style.display = 'none';
+                    atualizarResumo();
+                    return;
+                }
+                
+                // Remove seleção de todos os cards
+                document.querySelectorAll('.card-quarto').forEach(c => {
+                    c.classList.remove('selecionado');
+                    const btn = c.querySelector('.btn-selecionar-quarto');
+                    btn.classList.remove('selecionado');
+                    btn.textContent = 'Selecionar';
+                    c.querySelector('.quantidade-hospedes').style.display = 'none';
+                });
+                
+                // Seleciona o card clicado
+                card.classList.add('selecionado');
+                this.classList.add('selecionado');
+                this.textContent = 'Selecionado';
+                card.querySelector('.quantidade-hospedes').style.display = 'block';
+                atualizarResumo();
+            });
+        });
+
+        // Funções para controlar quantidade de hóspedes
+        function aumentarHospedes(tipo) {
+            const elemento = document.getElementById(`hospedes-${tipo}`);
+            const valorAtual = parseInt(elemento.textContent);
+            const maximo = tipo === 'familia' ? 6 : 2;
+            
+            if (valorAtual < maximo) {
+                elemento.textContent = valorAtual + 1;
+                atualizarResumo();
+            }
+        }
+
+        function diminuirHospedes(tipo) {
+            const elemento = document.getElementById(`hospedes-${tipo}`);
+            const valorAtual = parseInt(elemento.textContent);
+            
+            if (valorAtual > 1) {
+                elemento.textContent = valorAtual - 1;
+                atualizarResumo();
+            }
+        }
+
+        // Preencher tipo de quarto se vier da página de acomodações
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const tipoQuarto = urlParams.get('tipoQuarto');
+            
+            if (tipoQuarto) {
+                const card = document.querySelector(`.card-quarto[data-tipo="${tipoQuarto}"]`);
+                if (card) {
+                    card.querySelector('.btn-selecionar-quarto').click();
+                }
+            }
+        });
+
+        // Atualizar o envio do formulário para usar o novo formato
+        document.getElementById('formularioReserva').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Validar se um quarto foi selecionado
+            const quartoSelecionado = document.querySelector('.card-quarto.selecionado');
+            if (!quartoSelecionado) {
+                alert('Por favor, selecione um quarto para continuar.');
+                return;
+            }
+
+            // Validar datas
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            if (!checkin || !checkout) {
+                alert('Por favor, selecione as datas de check-in e check-out.');
+                return;
+            }
+
+            // Coletar dados do formulário
+            const dadosReserva = {
+                nome: document.getElementById('nome').value,
+                email: document.getElementById('email').value,
+                telefone: document.getElementById('telefone').value,
+                checkin: checkin,
+                checkout: checkout,
+                tipoQuarto: quartoSelecionado.querySelector('h4').textContent,
+                quantidadeHospedes: quartoSelecionado.querySelector('.numero-hospedes').textContent,
+                observacoes: document.getElementById('observacoes').value,
+                valorTotal: document.getElementById('resumo-total-3').textContent,
+                status: 'pendente'
+            };
+
+            try {
+                console.log('Enviando dados da reserva:', dadosReserva);
+                const response = await fetch('/api/reservas', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(dadosReserva)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                console.log('Reserva criada com sucesso:', data);
+                
+                // Redirecionar para a página de pagamento
+                window.location.href = `/pagamento.html?id=${data.id}`;
+            } catch (error) {
+                console.error('Erro ao enviar reserva:', error);
+                alert('Erro ao realizar reserva. Tente novamente.');
+            }
+        });
+    </script>
+</body>
+</html> 

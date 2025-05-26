@@ -1,0 +1,78 @@
+{
+  "reservas": [
+    {
+      "id": "1748268724508",
+      "nome": "Alessandri Oliveira Castro da Silva",
+      "email": "alessandrinaruto@gmail.com",
+      "telefone": "(89)981062936",
+      "checkin": "2025-05-29",
+      "checkout": "2025-06-07",
+      "tipoQuarto": "Suíte Luxo",
+      "quantidadeHospedes": "1",
+      "observacoes": "xdcasd\n",
+      "valorTotal": "R$ 4950.00",
+      "status": "confirmada",
+      "dataCriacao": "2025-05-26T14:12:04.508Z"
+    },
+    {
+      "id": "1748274116007",
+      "nome": "Alessandri Oliveira Castro da Silva",
+      "email": "luannyynepo@gmail.com",
+      "telefone": "(89)981062936",
+      "checkin": "2025-05-29",
+      "checkout": "2025-06-07",
+      "tipoQuarto": "Suíte Luxo",
+      "quantidadeHospedes": "2",
+      "observacoes": "xzd",
+      "valorTotal": "R$ 4950.00",
+      "status": "confirmada",
+      "dataCriacao": "2025-05-26T15:41:56.007Z"
+    },
+    {
+      "id": "1748275453013",
+      "nome": "Alessandri Oliveira Castro da Silva",
+      "email": "alessandrinaruto@gmail.com",
+      "telefone": "(89)981062936",
+      "checkin": "2025-05-29",
+      "checkout": "2025-06-06",
+      "tipoQuarto": "Suíte Luxo",
+      "quantidadeHospedes": "2",
+      "observacoes": "ghgh",
+      "valorTotal": "R$ 4400.00",
+      "status": "confirmada",
+      "dataCriacao": "2025-05-26T16:04:13.013Z"
+    }
+  ],
+  "contatos": [],
+  "usuarios": [],
+  "pagamentos": [
+    {
+      "id": "1748269839345",
+      "reservaId": "1748268724508",
+      "valor": "R$ 4950.00",
+      "dataPagamento": "2025-05-26T14:30:39.345Z",
+      "status": "aprovado"
+    },
+    {
+      "id": "1748270046645",
+      "reservaId": "1748268724508",
+      "valor": "R$ 4950.00",
+      "dataPagamento": "2025-05-26T14:34:06.645Z",
+      "status": "aprovado"
+    },
+    {
+      "id": "1748274124801",
+      "reservaId": "1748274116007",
+      "valor": "R$ 4950.00",
+      "dataPagamento": "2025-05-26T15:42:04.801Z",
+      "status": "aprovado"
+    },
+    {
+      "id": "1748275463246",
+      "reservaId": "1748275453013",
+      "valor": "R$ 4400.00",
+      "dataPagamento": "2025-05-26T16:04:23.246Z",
+      "status": "aprovado"
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Serviços - Pousada Encantos</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="assets/LogoEncantosDaMontanha1.png" alt="Pousada Encantos">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="acomodacoes.html">Acomodações</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <button class="menu-hamburguer" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="menu-mobile">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="acomodacoes.html">Acomodações</a></li>
+            <li><a href="servicos.html">Serviços</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </div>
+
+    <section class="page-header">
+        <h1>Nossos Serviços</h1>
+        <p>Descubra tudo o que oferecemos para tornar sua estadia inesquecível</p>
+    </section>
+
+    <section class="servicos-detalhados">
+        <div class="container-servicos">
+            <div class="servico-card">
+                <img src="assets/Restaurante2.jpeg" alt="Restaurante">
+                <h3>Restaurante</h3>
+                <p>Desfrute de uma experiência gastronômica única em nosso restaurante. Oferecemos:</p>
+                <ul>
+                    <li>Café da manhã completo</li>
+                    <li>Almoço à la carte</li>
+                    <li>Jantar com menu especial</li>
+                    <li>Opções vegetarianas e veganas</li>
+                    <li>Cardápio infantil</li>
+                </ul>
+                <p class="horario">Horário de funcionamento: 7h às 22h</p>
+            </div>
+
+            <div class="servico-card">
+                <img src="assets/Spas.jpg" alt="Spa">
+                <h3>Spa & Bem-estar</h3>
+                <p>Relaxe e renove suas energias com nossos tratamentos:</p>
+                <ul>
+                    <li>Massagens relaxantes</li>
+                    <li>Tratamentos faciais</li>
+                    <li>Banho de ofurô</li>
+                    <li>Sauna</li>
+                    <li>Hidratação corporal</li>
+                </ul>
+                <p class="horario">Horário de funcionamento: 9h às 20h</p>
+            </div>
+
+            <div class="servico-card">
+                <img src="assets/Quadra de tenis.jpg" alt="Piscina">
+                <h3>Área de Lazer</h3>
+                <p>Divirta-se em nossas áreas de lazer:</p>
+                <ul>
+                    <li>Piscina aquecida</li>
+                    <li>Academia</li>
+                    <li>Quadra de tênis</li>
+                    <li>Salão de jogos</li>
+                    <li>Área de churrasqueira</li>
+                </ul>
+                <p class="horario">Horário de funcionamento: 8h às 22h</p>
+            </div>
+
+            <div class="servico-card">
+                <img src="assets/eventos.jpg" alt="Eventos">
+                <h3>Eventos</h3>
+                <p>Realize seu evento conosco:</p>
+                <ul>
+                    <li>Casamentos</li>
+                    <li>Aniversários</li>
+                    <li>Reuniões corporativas</li>
+                    <li>Confraternizações</li>
+                    <li>Eventos especiais</li>
+                </ul>
+                <p class="horario">Agendamento prévio necessário</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contato-info">
+                <h3>Contato</h3>
+                <p>Endereço: Rua das Flores, 123</p>
+                <p>Telefone: (11) 1234-5678</p>
+                <p>Email: contato@pousadaencantos.com.br</p>
+            </div>
+            <div class="redes-sociais">
+                <h3>Redes Sociais</h3>
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Instagram</a>
+                <a href="#" class="social-icon">WhatsApp</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Pousada Encantos. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuHamburguer = document.querySelector('.menu-hamburguer');
+        const menuMobile = document.querySelector('.menu-mobile');
+        const links = document.querySelectorAll('.menu-mobile a');
+
+        menuHamburguer.addEventListener('click', function() {
+            menuHamburguer.classList.toggle('active');
+            menuMobile.classList.toggle('active');
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', function() {
+                menuHamburguer.classList.remove('active');
+                menuMobile.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!menuHamburguer.contains(event.target) && !menuMobile.contains(event.target)) {
+                menuHamburguer.classList.remove('active');
+                menuMobile.classList.remove('active');
+            }
+        });
+    });
+    </script>
+</body>
+</html> 

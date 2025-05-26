@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Confirmação - Pousada Encantos</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="assets/LogoEncantosDaMontanha1.png" alt="Logo Pousada Encantos da Montanha">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="acomodacoes.html">Acomodações</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>Reserva Confirmada</h1>
+        <p>Obrigado por escolher a Pousada Encantos!</p>
+    </section>
+
+    <section class="confirmacao-conteudo">
+        <div class="container-confirmacao">
+            <div class="card-confirmacao">
+                <div class="icone-sucesso">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Pagamento Realizado com Sucesso!</h2>
+                
+                <div class="detalhes-reserva">
+                    <h3>Detalhes da Reserva</h3>
+                    <div class="info-reserva">
+                        <div class="info-item">
+                            <span class="label">Número da Reserva:</span>
+                            <span class="valor" id="reservaId">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Nome:</span>
+                            <span class="valor" id="nome">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Check-in:</span>
+                            <span class="valor" id="checkin">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Check-out:</span>
+                            <span class="valor" id="checkout">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Acomodação:</span>
+                            <span class="valor" id="acomodacao">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Hóspedes:</span>
+                            <span class="valor" id="hospedes">-</span>
+                        </div>
+                        <div class="info-item total">
+                            <span class="label">Valor Total:</span>
+                            <span class="valor" id="valorTotal">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instrucoes">
+                    <h3>Próximos Passos</h3>
+                    <p>Enviamos um email com todos os detalhes da sua reserva.</p>
+                    <p>Para qualquer dúvida, entre em contato conosco pelo telefone (11) 1234-5678 ou email contato@pousadaencantos.com.br</p>
+                </div>
+
+                <div class="botoes-acao">
+                    <a href="index.html" class="btn-voltar">Voltar para Home</a>
+                    <a href="acomodacoes.html" class="btn-nova-reserva">Fazer Nova Reserva</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contato-info">
+                <h3>Contato</h3>
+                <p>Endereço: Rua das Flores, 123</p>
+                <p>Telefone: (11) 1234-5678</p>
+                <p>Email: contato@pousadaencantos.com.br</p>
+            </div>
+            <div class="redes-sociais">
+                <h3>Redes Sociais</h3>
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Instagram</a>
+                <a href="#" class="social-icon">WhatsApp</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Pousada Encantos. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Função para carregar os dados da reserva
+        async function carregarDadosReserva() {
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const reservaId = urlParams.get('id');
+                
+                if (!reservaId) {
+                    throw new Error('ID da reserva não encontrado');
+                }
+
+                const response = await fetch(`/api/reservas/${reservaId}`);
+                if (!response.ok) {
+                    throw new Error('Erro ao buscar dados da reserva');
+                }
+
+                const reserva = await response.json();
+                console.log('Dados da reserva:', reserva);
+
+                // Atualizar os campos do formulário
+                document.getElementById('reservaId').textContent = reservaId;
+                document.getElementById('nome').textContent = reserva.nome;
+                document.getElementById('checkin').textContent = new Date(reserva.checkin).toLocaleDateString();
+                document.getElementById('checkout').textContent = new Date(reserva.checkout).toLocaleDateString();
+                document.getElementById('acomodacao').textContent = reserva.tipoQuarto;
+                document.getElementById('hospedes').textContent = reserva.quantidadeHospedes + ' pessoa(s)';
+                document.getElementById('valorTotal').textContent = reserva.valorTotal;
+            } catch (error) {
+                console.error('Erro ao carregar dados da reserva:', error);
+                alert('Erro ao carregar dados da reserva. Por favor, tente novamente.');
+            }
+        }
+
+        // Carregar dados da reserva quando a página carregar
+        document.addEventListener('DOMContentLoaded', carregarDadosReserva);
+    </script>
+</body>
+</html> 
