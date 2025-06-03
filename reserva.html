@@ -448,7 +448,8 @@
                 console.log('Reserva criada com sucesso:', data);
                 
                 // Redirecionar para a página de pagamento
-                window.location.href = `/pagamento.html?id=${data.id}`;
+               window.location.href = `${window.location.origin}/Site-Pousada-Encantos/pagamento.html?id=${data.id}`;
+
             } catch (error) {
                 console.error('Erro ao enviar reserva:', error);
                 alert('Erro ao realizar reserva. Tente novamente.');
