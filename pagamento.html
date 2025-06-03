@@ -131,7 +131,8 @@
                     throw new Error('ID da reserva não encontrado');
                 }
 
-                const response = await fetch(`/api/reservas/${reservaId}`);
+                const response = await fetch(`https://site-pousada-encantos.onrender.com/api/reservas/${reservaId}`);
+
                 if (!response.ok) {
                     throw new Error('Erro ao buscar dados da reserva');
                 }
@@ -177,7 +178,8 @@
                     valor: valorTotal
                 });
 
-                const response = await fetch('/api/pagamentos', {
+                const response = await fetch('https://site-pousada-encantos.onrender.com/api/pagamentos', {
+
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

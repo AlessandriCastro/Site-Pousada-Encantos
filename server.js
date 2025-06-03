@@ -7,7 +7,6 @@ import routes from './routes.js'
 const app = express()
 const port = process.env.PORT || 3000
 
-
 // Configuração do CORS
 app.use(cors({
     origin: '*',
