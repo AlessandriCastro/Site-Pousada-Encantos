@@ -199,7 +199,7 @@
                 console.log('Pagamento processado:', resultado);
 
                 // Redirecionar para página de confirmação
-                window.location.href = `/confirmacao.html?id=${reservaId}`;
+                window.location.href =`${window.location.origin}/Site-Pousada-Encantos/confirmacao.html?id=${reservaId}`;
             } catch (error) {
                 console.error('Erro ao processar pagamento:', error);
                 alert(error.message || 'Erro ao processar pagamento. Por favor, tente novamente.');
