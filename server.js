@@ -5,7 +5,8 @@ import cors from 'cors'
 import routes from './routes.js'
 
 const app = express()
-const port = 3001
+const port = process.env.PORT || 3000
+
 
 // Configuração do CORS
 app.use(cors({
@@ -35,5 +36,5 @@ app.get('/', (req, res) => {
 
 // Iniciar o servidor
 app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`)
+    console.log(`Servidor rodando em na porta ${port}`)
 }) 
