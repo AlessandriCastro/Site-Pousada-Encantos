@@ -4,8 +4,11 @@ import { dirname, join } from 'path'
 import cors from 'cors'
 import routes from './routes.js'
 
-const app = express()
+const express = require("express");
+const cors = require("cors");
 const port = process.env.PORT || 3000
+
+const app = express();
 
 // Configuração do CORS
 app.use(cors({
