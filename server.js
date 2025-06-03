@@ -9,10 +9,10 @@ const port = process.env.PORT || 3000
 
 // Configuração do CORS
 app.use(cors({
-    origin: '*',
+    origin: 'https://alessandricastro.github.io',
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true
+    
 }))
 
 // Middleware para processar JSON
