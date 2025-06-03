@@ -4,7 +4,7 @@ import { dirname, join } from 'path'
 import cors from 'cors'
 import routes from './routes.js'
 
-const express = require("express");
+
 const cors = require("cors");
 const port = process.env.PORT || 3000
 
